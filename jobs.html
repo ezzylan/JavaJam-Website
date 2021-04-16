@@ -68,12 +68,38 @@
                 <div class="col-md">
                     <label for="job-position" class="form-label">Select job position:</label>
                     <select name="job-position" id="job-position" class="form-select">
-                        <option value="barista">Barista</option>
+                        <!-- <option value="barista">Barista</option>
                         <option value="singer">Performer</option>
                         <option value="waiter">Waiter</option>
                         <option value="manager">Manager</option>
-                        <option value="staff">Staff</option>
-                    </select><br>
+                        <option value="staff">Staff</option> -->
+
+                        <script>
+                            let jobclass = [{ code: 'ba', name: 'Barista', scope: 'Preparing and serving hot and cold drinks such as coffee, tea, artisan and speciality beverages.' },
+                            { code: 'ma', name: 'Manager', scope: 'Managing day-to-day operations of the cafe.' },
+                            { code: 'tr', name: 'Trainee', scope: 'Supporting daily operations of the cafe.' }]
+
+                            jobclass.forEach((job) => {
+                                document.write('<option value="' + job.code + '">' + job.name + '</option>')
+                            })
+
+                            document.getElementById('job-position').addEventListener('change', (e) => {
+                                let scope = document.getElementById('jobScope')
+                                jobclass.forEach((job) => {
+                                    if (job.code == e.target.value) {
+                                        scope.textContent = job.scope
+                                    }
+                                })
+                            })
+                        </script>
+                    </select>
+
+                    <div class="container-fluid">
+                        <p id="jobScope" class="fst-italic pt-1">
+                            Preparing and serving hot and cold drinks such as coffee, tea, artisan and speciality
+                            beverages.
+                        </p>
+                    </div>
 
                     <div class="col-md">
                         <label for="email" class="form-label">*E-mail:</label>
