@@ -22,7 +22,7 @@
             <nav class="navbar navbar-expand navbar-light">
                 <div class="container-fluid justify-content-center">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         <a class="nav-link" href="menu.html">Menu</a>
                         <a class="nav-link" href="music.html">Music</a>
                         <a class="nav-link" href="jobs.html">Jobs</a>
