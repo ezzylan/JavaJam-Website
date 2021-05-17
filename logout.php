@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include 'include\head.php'; ?>
 
 <body>
     <div class="container-fluid container-lg">
-        <?php $page = 'logout'; include 'include\header.php'; ?>
+        <?php 
+        
+        $page = 'logout'; include 'include\header.php'; 
+        session_unset();
+        
+        ?>
         <hr>
 
         <main class="p-4">
-            
+            <h2>Logout successful!</h2>
         </main>        
         <hr>
 

@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include 'include\head.php'; ?>
 
 <body>
@@ -10,13 +7,13 @@
 
         <main class="p-4">
             <h1>Login</h1>
-            <p>Please sign in.</p>
+            <p>Log in to view profile details.</p>
 
             <form action="processLogin.php" method="post" class="form-group needs-validation" novalidate>
                 <div class="form-group row g-3">
                     <div class="col-sm">
                         <label for="myEmail" class="form-label">*E-mail:</label>
-                        <input type="email" class="form-control" id="mEmail" name="mEmail" required />
+                        <input type="email" class="form-control" id="email" name="email" required />
                     </div>
                     <div class="col-sm">
                         <label for="password" class="form-label">*Password:</label>
@@ -28,7 +25,7 @@
                 <div class="form-group row">
                     <div class="col-sm">
                         <button type="submit" class="btn btn-primary">
-                            Sign In
+                            Log In
                         </button>
                     </div>
                 </div>
