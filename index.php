@@ -62,7 +62,7 @@
                         <h6>February 2021:</h6>
                         <p>Tahoe Greg is back from his tour. New songs. New stories.</p>
 
-                        <a href="music.html" class="text-dark text-decoration-none">View details &twoheadrightarrow;</a>
+                        <a href="music.php" class="text-dark text-decoration-none">View details &twoheadrightarrow;</a>
                     </div>
                 </div>
             </div>
