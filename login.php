@@ -2,8 +2,23 @@
 
 <body>
     <div class="container-fluid container-lg">
-        <?php $page = 'login'; include 'include\header.php'; ?>
-        <hr>
+        <?php 
+        
+        $page = 'login'; 
+        include 'include\header.php'; 
+        echo '<hr>';
+
+        if (isset($_GET["action"])) {
+            if ($_GET["action"] == 'login_failed') {
+                echo '
+                <div class="container-fluid px-4 pt-3 pb-1 mb-3 bg-danger text-white rounded">
+                    <p>Access Denied.<br>Incorrect username or password.</p>
+                </div>
+                ';
+            }
+        }
+
+        ?>
 
         <main class="p-4">
             <h1>Login</h1>

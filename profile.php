@@ -1,4 +1,9 @@
-<?php include('include\head.php'); ?>
+<?php 
+
+include('include\head.php');
+include_once("config\config.php");
+
+?>
 
 <body>
     <div class="container-fluid container-lg">
@@ -6,10 +11,29 @@
         <hr>
 
         <main class="p-4">
-            <h1>JavaJam Member Profile</h1>
+            <h1>JavaJam Coffee House - Member Profile</h1>
 
-            <?php if ($name && $email): ?>       
-                <p>Hi <?php echo $name ?>! Welcome to JavaJam Coffee House!</p>;
+            <?php 
+            
+            if (isset($_SESSION['logged_in']) && $_SESSION['user_id'] && 
+                $_SESSION['user_email'] && $_SESSION['logged_in']==true): 
+                
+                $id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM members WHERE userID='$id'";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $name = $row['name'];
+                        $email = $row['email'];
+                    }
+                }
+
+                $fname = explode(' ', $name);
+                echo '<p>Hi '.$fname[0].'! Welcome to JavaJam Coffee House!</p>';
+
+            ?>       
+
                 <table class="table table-light table-striped">
                 <tbody>
                     <tr>
@@ -21,10 +45,15 @@
                     <td> <?php echo $email ?> </td>
                     </tr>
                 </tbody>
-                </table>    
-            <?php else: ?>
-                <p>Sign up or log in to view profile details.</p>
-            <?php endif; ?>
+                </table>
+
+            <?php 
+        
+            else: 
+                echo '<p>Only logged in and authorized member can access this page.</p>';
+            endif; $conn->close();
+
+            ?>
         </main>        
         <hr>
 

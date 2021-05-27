@@ -6,12 +6,14 @@
         
         $page = 'logout'; include 'include\header.php'; 
         session_unset();
+        session_destroy();
         
         ?>
         <hr>
 
         <main class="p-4">
-            <h2>Logout successful!</h2>
+            <h1>JavaJam Coffee House - Logout</h1>
+            <p>You have been logged out.</p>
         </main>        
         <hr>
 

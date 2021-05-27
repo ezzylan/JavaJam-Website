@@ -1,10 +1,3 @@
-<?php 
-
-$name = $_SESSION['name'] ?? null;
-$email = $_SESSION['email'] ?? null;
-
-?>
-
 <header>
     <div class="container text-center p-2">
         <h1>JavaJam Coffee House</h1>
@@ -22,11 +15,15 @@ $email = $_SESSION['email'] ?? null;
                 <a class="nav-link <?php if($page == 'profile') echo 'active" aria-current="page"'; ?>" href="profile.php">Profile</a>
                 <a class="nav-link 
                 <?php 
+
+                $id = $_SESSION['user_id'] ?? null;
+                $email = $_SESSION['user_email'] ?? null;
+                $login = $_SESSION['logged_in'] ?? false;
                 
-                if ($page == 'logout' && $name && $email):
-                    echo 'active" aria-current="page"';
-                else: 
+                if (!isset($_SESSION['logged_in']) && !$id && !$email && $login==false):   
                     echo 'disabled" tabindex="-1" aria-disabled="true"'; 
+                elseif ($page == 'logout'): 
+                    echo 'active" aria-current="page"';
                 endif;
                 
                 ?>
