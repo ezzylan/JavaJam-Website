@@ -1,4 +1,9 @@
-<?php include 'include\head.php'; ?>
+<?php 
+
+include('include\head.php'); 
+$nameErr = $emailErr = $pwdErr = $rpwdErr = '';
+
+?>
 
 <body>
     <div class="container-fluid container-lg">
@@ -17,10 +22,12 @@
                     <div class="col-sm">
                         <label for="name" class="form-label">*Name:</label>
                         <input type="text" class="form-control" id="name" name="name" required />
+                        <span class="text-danger"><?php echo $nameErr ?></span>
                     </div>
                     <div class="col-sm">
                         <label for="email" class="form-label">*E-mail:</label>
                         <input type="email" class="form-control" id="email" name="email" required />
+                        <span class="text-danger"><?php echo $emailErr ?></span>
                     </div>
                 </div>
                 <br />
@@ -29,10 +36,12 @@
                     <div class="col-sm">
                         <label for="password" class="form-label">*Password:</label>
                         <input class="form-control" id="password" name="password" type="password" required />
+                        <span class="text-danger"><?php echo $pwdErr ?></span>
                     </div>
                     <div class="col-sm">
                         <label for="rpassword" class="form-label">*Repeat Password:</label>
                         <input class="form-control" id="rpassword" name="rpassword" type="password" required />
+                        <span class="text-danger"><?php echo $rpwdErr ?></span>
                     </div>
                 </div>
                 <br />

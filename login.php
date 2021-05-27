@@ -12,7 +12,7 @@
             if ($_GET["action"] == 'login_failed') {
                 echo '
                 <div class="container-fluid px-4 pt-3 pb-1 mb-3 bg-danger text-white rounded">
-                    <p>Access Denied.<br>Incorrect username or password.</p>
+                    <p>Access Denied.<br>Incorrect email or password.</p>
                 </div>
                 ';
             }

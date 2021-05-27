@@ -14,11 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $_SESSION['logged_in'] = true;
-                $_SESSION['user_id'] = $row['userID'];
-                $_SESSION['user_email'] = $row['email'];
-            }
-            header("Location: profile.php?action=login_success");
+                if (password_verify($password, $row['password'])) {
+                    $_SESSION['logged_in'] = true;
+                    $_SESSION['user_id'] = $row['userID'];
+                    $_SESSION['user_email'] = $row['email'];
+                } else { header("Location: login.php?action=login_failed"); }
+            } header("Location: profile.php?action=login_success");
         } else { header("Location: login.php?action=login_failed"); }
     }
 }
